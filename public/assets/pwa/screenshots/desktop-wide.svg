@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Moodist Desktop Screenshot</title>
+  <desc id="desc">Wide desktop preview showing categories and sound controls</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#09090b" />
+      <stop offset="100%" stop-color="#18181b" />
+    </linearGradient>
+    <linearGradient id="card" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#27272a" />
+      <stop offset="100%" stop-color="#3f3f46" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)" />
+  <rect x="60" y="50" width="1160" height="620" rx="28" fill="#111113" stroke="#27272a" />
+
+  <text x="110" y="120" fill="#fafafa" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="700">Moodist</text>
+  <text x="110" y="160" fill="#a1a1aa" font-family="Inter, Arial, sans-serif" font-size="24">Ambient sounds for focus and calm</text>
+
+  <rect x="100" y="210" width="340" height="400" rx="20" fill="url(#card)" />
+  <rect x="470" y="210" width="340" height="400" rx="20" fill="url(#card)" />
+  <rect x="840" y="210" width="340" height="400" rx="20" fill="url(#card)" />
+
+  <circle cx="260" cy="320" r="44" fill="#22d3ee" />
+  <circle cx="630" cy="320" r="44" fill="#34d399" />
+  <circle cx="1000" cy="320" r="44" fill="#a78bfa" />
+
+  <rect x="150" y="500" width="240" height="18" rx="9" fill="#52525b" />
+  <rect x="520" y="500" width="240" height="18" rx="9" fill="#52525b" />
+  <rect x="890" y="500" width="240" height="18" rx="9" fill="#52525b" />
+</svg>

@@ -12,15 +12,36 @@ export default defineConfig({
         description: 'Ambient sounds for focus and calm.',
         display: 'standalone',
         icons: [
-          ...[72, 128, 144, 152, 192, 256, 512].map(size => ({
-            sizes: `${size}x${size}`,
-            src: `/assets/pwa/${size}.png`,
-            type: 'image/png',
-          })),
+          {
+            sizes: '512x512',
+            src: '/assets/pwa/icon.svg',
+            type: 'image/svg+xml',
+            purpose: 'any',
+          },
+          {
+            sizes: '512x512',
+            src: '/assets/pwa/icon-maskable.svg',
+            type: 'image/svg+xml',
+            purpose: 'maskable',
+          },
         ],
+        id: '/',
         name: 'Moodist',
         orientation: 'any',
         scope: '/',
+        screenshots: [
+          {
+            sizes: '1280x720',
+            src: '/assets/pwa/screenshots/desktop-wide.svg',
+            type: 'image/svg+xml',
+            form_factor: 'wide',
+          },
+          {
+            sizes: '720x1280',
+            src: '/assets/pwa/screenshots/mobile.svg',
+            type: 'image/svg+xml',
+          },
+        ],
         short_name: 'Moodist',
         start_url: '/',
         theme_color: '#09090b',

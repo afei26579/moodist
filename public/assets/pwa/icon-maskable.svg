@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Moodist Maskable Icon</title>
+  <desc id="desc">Maskable app icon for Moodist PWA</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#27272a" />
+      <stop offset="100%" stop-color="#09090b" />
+    </linearGradient>
+    <linearGradient id="wave" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#22d3ee" />
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" fill="url(#bg)" />
+
+  <g transform="translate(32,32)">
+    <rect width="448" height="448" rx="112" fill="#09090b" />
+    <path d="M52 286c16 0 24-9 31-27 10-24 18-40 41-40 24 0 32 18 40 40 6 18 12 27 27 27 15 0 23-9 30-27 9-24 17-40 41-40 24 0 32 18 39 40 7 18 13 27 28 27" fill="none" stroke="url(#wave)" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="224" cy="168" r="56" fill="none" stroke="#fafafa" stroke-width="16" />
+    <circle cx="224" cy="168" r="20" fill="#fafafa" />
+  </g>
+</svg>
