@@ -7,7 +7,5 @@ interface BinauralProps {
 }
 
 export function Binaural({ open }: BinauralProps) {
-  return (
-    <Item icon={<FaHeadphonesAlt />} label="Binaural Beats" onClick={open} />
-  );
+  return <Item icon={<FaHeadphonesAlt />} label="双耳节拍" onClick={open} />;
 }

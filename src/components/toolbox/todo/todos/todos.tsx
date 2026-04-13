@@ -11,7 +11,7 @@ export function Todos() {
   return (
     <div className={styles.todos}>
       <header>
-        <p className={styles.label}>Your Todos</p>
+        <p className={styles.label}>我的待办</p>
         <div className={styles.divider} />
         <p className={styles.counter}>
           {doneCount} / {todos.length}
@@ -30,7 +30,7 @@ export function Todos() {
           ))}
         </>
       ) : (
-        <p className={styles.empty}>You don&apos;t have any todos.</p>
+        <p className={styles.empty}>你还没有待办事项。</p>
       )}
     </div>
   );
