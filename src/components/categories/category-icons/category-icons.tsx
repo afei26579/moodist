@@ -15,7 +15,7 @@ export default function CategoryIcons() {
   return (
     <Container>
       <div className={styles.wrapper}>
-        <h3 className={styles.title}>Categories</h3>
+        <h3 className={styles.title}>分类</h3>
         <div className={styles.categoryIconsWrapper}>
           <Tooltip.Provider delayDuration={0}>
             {categories.map(category => {

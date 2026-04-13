@@ -13,15 +13,21 @@ export default defineConfig({
         display: 'standalone',
         icons: [
           {
-            sizes: '512x512',
-            src: '/assets/pwa/icon.svg',
-            type: 'image/svg+xml',
+            sizes: '192x192',
+            src: '/assets/pwa/192.png',
+            type: 'image/png',
             purpose: 'any',
           },
           {
             sizes: '512x512',
-            src: '/assets/pwa/icon-maskable.svg',
-            type: 'image/svg+xml',
+            src: '/assets/pwa/512x512.png',
+            type: 'image/png',
+            purpose: 'any',
+          },
+          {
+            sizes: '512x512',
+            src: '/assets/pwa/manifest-512x512.png',
+            type: 'image/png',
             purpose: 'maskable',
           },
         ],

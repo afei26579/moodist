@@ -8,10 +8,6 @@ interface LofiProps {
 
 export function Lofi({ open }: LofiProps) {
   return (
-    <Item
-      icon={<IoIosMusicalNote />}
-      label="Lofi Music Player"
-      onClick={open}
-    />
+    <Item icon={<IoIosMusicalNote />} label="Lofi 音乐播放器" onClick={open} />
   );
 }

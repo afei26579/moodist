@@ -7,5 +7,5 @@ interface IsochronicProps {
 }
 
 export function Isochronic({ open }: IsochronicProps) {
-  return <Item icon={<TbWaveSine />} label="Isochronic Tones" onClick={open} />;
+  return <Item icon={<TbWaveSine />} label="等时音" onClick={open} />;
 }
