@@ -1,5 +1,9 @@
 # build output
 dist/
+release/
+*.exe
+*.asar
+
 
 # generated types
 .astro/
@@ -20,10 +24,3 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-*storybook.log
-
-#build
-
-release/
-*.exe
-*.asar

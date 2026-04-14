@@ -2,7 +2,10 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 
 import { Modal } from '@/components/modal';
 import { Slider } from '@/components/slider';
+<<<<<<< HEAD
 import { useI18n } from '@/hooks/use-i18n';
+=======
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
 
 import styles from './binaural.module.css';
 
@@ -11,6 +14,7 @@ interface BinauralProps {
   show: boolean;
 }
 
+<<<<<<< HEAD
 import type { TranslationKey } from '@/i18n/translations';
 
 interface Preset {
@@ -26,6 +30,21 @@ const presets: Preset[] = [
   { baseFrequency: 100, beatFrequency: 20, name: 'beta' },
   { baseFrequency: 100, beatFrequency: 40, name: 'gamma' },
   { baseFrequency: 440, beatFrequency: 10, name: 'custom' },
+=======
+interface Preset {
+  baseFrequency: number;
+  beatFrequency: number;
+  name: string;
+}
+
+const presets: Preset[] = [
+  { baseFrequency: 100, beatFrequency: 2, name: 'Delta (Deep Sleep) 2 Hz' },
+  { baseFrequency: 100, beatFrequency: 5, name: 'Theta (Meditation) 5 Hz' },
+  { baseFrequency: 100, beatFrequency: 10, name: 'Alpha (Relaxation) 10 Hz' },
+  { baseFrequency: 100, beatFrequency: 20, name: 'Beta (Focus) 20 Hz' },
+  { baseFrequency: 100, beatFrequency: 40, name: 'Gamma (Cognition) 40 Hz' },
+  { baseFrequency: 440, beatFrequency: 10, name: 'Custom' },
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
 ];
 
 function computeBinauralBeatOscillatorFrequencies(
@@ -39,12 +58,19 @@ function computeBinauralBeatOscillatorFrequencies(
 }
 
 export function BinauralModal({ onClose, show }: BinauralProps) {
+<<<<<<< HEAD
   const { t } = useI18n();
+=======
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
   const [baseFrequency, setBaseFrequency] = useState<number>(440); // Default to A4 note
   const [beatFrequency, setBeatFrequency] = useState<number>(10); // Default to 10 Hz difference
   const [volume, setVolume] = useState<number>(0.5); // Default volume at 50%
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+<<<<<<< HEAD
   const [selectedPreset, setSelectedPreset] = useState<string>('custom');
+=======
+  const [selectedPreset, setSelectedPreset] = useState<string>('Custom');
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
 
   const audioContextRef = useRef<AudioContext | null>(null);
   const leftOscillatorRef = useRef<OscillatorNode | null>(null);
@@ -139,7 +165,11 @@ export function BinauralModal({ onClose, show }: BinauralProps) {
 
   useEffect(() => {
     // Update frequencies when a preset is selected
+<<<<<<< HEAD
     if (selectedPreset !== 'custom') {
+=======
+    if (selectedPreset !== 'Custom') {
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
       const preset = presets.find(p => p.name === selectedPreset);
       if (preset) {
         setBaseFrequency(preset.baseFrequency);
@@ -152,7 +182,12 @@ export function BinauralModal({ onClose, show }: BinauralProps) {
     const selected = e.target.value;
     setSelectedPreset(selected);
 
+<<<<<<< HEAD
     if (selected === 'custom') {
+=======
+    if (selected === 'Custom') {
+      // Allow user to input custom frequencies
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
       return;
     }
 
@@ -166,27 +201,48 @@ export function BinauralModal({ onClose, show }: BinauralProps) {
   return (
     <Modal show={show} onClose={onClose}>
       <header className={styles.header}>
+<<<<<<< HEAD
         <h2 className={styles.title}>{t.binaural.title}</h2>
         <p className={styles.desc}>{t.binaural.description}</p>
+=======
+        <h2 className={styles.title}>Binaural Beat</h2>
+        <p className={styles.desc}>Binaural beat generator.</p>
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
       </header>
 
       <div className={styles.fieldWrapper}>
         <label>
+<<<<<<< HEAD
           {t.binaural.presets}:
           <select value={selectedPreset} onChange={handlePresetChange}>
             {presets.map(preset => (
               <option key={preset.name} value={preset.name}>
                 {t.binaural.presetLabels[preset.name as keyof typeof t.binaural.presetLabels] ?? t.common.custom}
+=======
+          Presets:
+          <select value={selectedPreset} onChange={handlePresetChange}>
+            {presets.map(preset => (
+              <option key={preset.name} value={preset.name}>
+                {preset.name}
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
               </option>
             ))}
           </select>
         </label>
       </div>
+<<<<<<< HEAD
       {selectedPreset === 'custom' && (
         <>
           <div className={styles.fieldWrapper}>
             <label>
               {t.binaural.baseFrequency}:
+=======
+      {selectedPreset === 'Custom' && (
+        <>
+          <div className={styles.fieldWrapper}>
+            <label>
+              Base Frequency (Hz):
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
               <input
                 max="1500"
                 min="20"
@@ -201,7 +257,11 @@ export function BinauralModal({ onClose, show }: BinauralProps) {
           </div>
           <div className={styles.fieldWrapper}>
             <label>
+<<<<<<< HEAD
               {t.binaural.beatFrequency}:
+=======
+              Beat Frequency (Hz):
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
               <input
                 max="40"
                 min="0.1"
@@ -218,7 +278,11 @@ export function BinauralModal({ onClose, show }: BinauralProps) {
       )}
       <div className={styles.fieldWrapper}>
         <label>
+<<<<<<< HEAD
           {t.common.volume}:
+=======
+          Volume:
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
           <Slider
             className={styles.volume}
             max={1}
@@ -235,10 +299,17 @@ export function BinauralModal({ onClose, show }: BinauralProps) {
           disabled={isPlaying}
           onClick={startSound}
         >
+<<<<<<< HEAD
           {t.common.start}
         </button>
         <button disabled={!isPlaying} onClick={stopSound}>
           {t.common.stop}
+=======
+          Start
+        </button>
+        <button disabled={!isPlaying} onClick={stopSound}>
+          Stop
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
         </button>
       </div>
     </Modal>

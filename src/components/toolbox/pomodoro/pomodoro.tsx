@@ -12,7 +12,10 @@ import { useLocalStorage } from '@/hooks/use-local-storage';
 import { useSoundEffect } from '@/hooks/use-sound-effect';
 import { usePomodoroStore } from '@/stores/pomodoro';
 import { useCloseListener } from '@/hooks/use-close-listener';
+<<<<<<< HEAD
 import { useI18n } from '@/hooks/use-i18n';
+=======
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
 
 import styles from './pomodoro.module.css';
 
@@ -24,7 +27,10 @@ interface PomodoroProps {
 
 export function Pomodoro({ onClose, open, show }: PomodoroProps) {
   const [showSetting, setShowSetting] = useState(false);
+<<<<<<< HEAD
   const { t } = useI18n();
+=======
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
 
   const [selectedTab, setSelectedTab] = useState('pomodoro');
 
@@ -58,11 +64,19 @@ export function Pomodoro({ onClose, open, show }: PomodoroProps) {
 
   const tabs = useMemo(
     () => [
+<<<<<<< HEAD
       { id: 'pomodoro', label: t.pomodoro.pomodoro },
       { id: 'short', label: t.pomodoro.break },
       { id: 'long', label: t.pomodoro.longBreak },
     ],
     [t],
+=======
+      { id: 'pomodoro', label: 'Pomodoro' },
+      { id: 'short', label: 'Break' },
+      { id: 'long', label: 'Long Break' },
+    ],
+    [],
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
   );
 
   useCloseListener(() => setShowSetting(false));
@@ -125,12 +139,20 @@ export function Pomodoro({ onClose, open, show }: PomodoroProps) {
     <>
       <Modal show={show} onClose={onClose}>
         <header className={styles.header}>
+<<<<<<< HEAD
           <h2 className={styles.title}>{t.pomodoro.title}</h2>
+=======
+          <h2 className={styles.title}>Pomodoro Timer</h2>
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
 
           <div className={styles.button}>
             <Button
               icon={<IoMdSettings />}
+<<<<<<< HEAD
               tooltip={t.pomodoro.changeTimes}
+=======
+              tooltip="Change Times"
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
               onClick={() => {
                 onClose();
                 setShowSetting(true);
@@ -144,19 +166,31 @@ export function Pomodoro({ onClose, open, show }: PomodoroProps) {
 
         <div className={styles.control}>
           <p className={styles.completed}>
+<<<<<<< HEAD
             {completions[selectedTab] || 0} {t.pomodoro.completed}
+=======
+            {completions[selectedTab] || 0} completed
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
           </p>
           <div className={styles.buttons}>
             <Button
               icon={<FaUndo />}
               smallIcon
+<<<<<<< HEAD
               tooltip={t.pomodoro.restart}
+=======
+              tooltip="Restart"
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
               onClick={restart}
             />
             <Button
               icon={running ? <FaPause /> : <FaPlay />}
               smallIcon
+<<<<<<< HEAD
               tooltip={running ? t.pomodoro.pause : t.pomodoro.start}
+=======
+              tooltip={running ? 'Pause' : 'Start'}
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
               onClick={toggleRunning}
             />
           </div>

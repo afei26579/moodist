@@ -41,8 +41,12 @@
   border-radius: 8px;
 }
 
+<<<<<<< HEAD
 .globalVolume,
 .languageSwitch {
+=======
+.globalVolume {
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
   width: 100%;
   padding: 12px;
 
@@ -59,6 +63,7 @@
     min-width: 0;
   }
 }
+<<<<<<< HEAD
 
 .languageButtons {
   display: grid;
@@ -87,3 +92,5 @@
   background-color: var(--color-neutral-300) !important;
   border-color: var(--color-neutral-400) !important;
 }
+=======
+>>>>>>> b6eb5d02316342552812df149042899a4dd1e779
