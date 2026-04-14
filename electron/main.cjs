@@ -16,9 +16,11 @@ function createWindow() {
 
   if (app.isPackaged) {
     win.loadFile(path.join(__dirname, '../dist/index.html'));
-  } else {
-    win.loadURL('http://localhost:4321');
+    return;
   }
+
+  const devUrl = process.env.ELECTRON_RENDERER_URL || 'http://localhost:4321';
+  win.loadURL(devUrl);
 }
 
 app.whenReady().then(() => {

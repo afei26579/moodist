@@ -23,8 +23,9 @@
     "release:patch": "npm run release -- --release-as patch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:4321 && electron .\"",
+    "electron:dev": "concurrently \"npm run dev -- --port 4321\" \"wait-on http://localhost:4321 && electron .\"",
     "electron:build": "npm run build && electron-builder",
+    "electron:build:clean": "npm run build && rmdir /s /q release && electron-builder",
     "dist": "npm run build && electron-builder"
   },
   "dependencies": {
