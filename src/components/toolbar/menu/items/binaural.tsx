@@ -1,11 +1,14 @@
 import { FaHeadphonesAlt } from 'react-icons/fa/index';
 
 import { Item } from '../item';
+import { useI18n } from '@/hooks/use-i18n';
 
 interface BinauralProps {
   open: () => void;
 }
 
 export function Binaural({ open }: BinauralProps) {
-  return <Item icon={<FaHeadphonesAlt />} label="双耳节拍" onClick={open} />;
+  const { t } = useI18n();
+
+  return <Item icon={<FaHeadphonesAlt />} label={t.menu.items.binaural} onClick={open} />;
 }

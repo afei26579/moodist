@@ -1,13 +1,16 @@
 import { LuGithub } from 'react-icons/lu/index';
 
 import { Item } from '../item';
+import { useI18n } from '@/hooks/use-i18n';
 
 export function Source() {
+  const { t } = useI18n();
+
   return (
     <Item
       href="https://github.com/remvze/moodist"
       icon={<LuGithub />}
-      label="源码"
+      label={t.menu.items.source}
     />
   );
 }

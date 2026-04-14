@@ -35,10 +35,12 @@ import { Slider } from '@/components/slider';
 
 import { fade, mix, slideY } from '@/lib/motion';
 import { useSoundStore } from '@/stores/sound';
+import { useLanguageStore } from '@/stores/language';
 
 import styles from './menu.module.css';
 import { useCloseListener } from '@/hooks/use-close-listener';
 import { closeModals } from '@/lib/modal';
+import { useI18n } from '@/hooks/use-i18n';
 
 export function Menu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,6 +48,8 @@ export function Menu() {
   const noSelected = useSoundStore(state => state.noSelected());
   const globalVolume = useSoundStore(state => state.globalVolume);
   const setGlobalVolume = useSoundStore(state => state.setGlobalVolume);
+  const setLanguage = useLanguageStore(state => state.setLanguage);
+  const { language, t } = useI18n();
 
   const initial = useMemo(
     () => ({
@@ -103,7 +107,7 @@ export function Menu() {
       <div className={styles.wrapper}>
         <DropdownMenu.Root open={isOpen} onOpenChange={o => setIsOpen(o)}>
           <DropdownMenu.Trigger asChild>
-            <button aria-label="菜单" className={styles.menuButton}>
+            <button aria-label={t.menu.ariaLabel} className={styles.menuButton}>
               {isOpen ? <IoClose /> : <IoMenu />}
             </button>
           </DropdownMenu.Trigger>
@@ -147,13 +151,33 @@ export function Menu() {
                     <Divider />
 
                     <div className={styles.globalVolume}>
-                      <label htmlFor="global-volume">全局音量</label>
+                      <label>{t.menu.globalVolume}</label>
                       <Slider
                         max={100}
                         min={0}
                         value={globalVolume * 100}
                         onChange={value => setGlobalVolume(value / 100)}
                       />
+                    </div>
+
+                    <div className={styles.languageSwitch}>
+                      <label>{t.menu.language}</label>
+                      <div className={styles.languageButtons}>
+                        <button
+                          className={language === 'zh' ? styles.activeLanguage : ''}
+                          onClick={() => setLanguage('zh')}
+                          type="button"
+                        >
+                          {t.menu.languageChinese}
+                        </button>
+                        <button
+                          className={language === 'en' ? styles.activeLanguage : ''}
+                          onClick={() => setLanguage('en')}
+                          type="button"
+                        >
+                          {t.menu.languageEnglish}
+                        </button>
+                      </div>
                     </div>
 
                     <Divider />

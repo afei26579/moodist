@@ -3,6 +3,7 @@ import { MdOutlineAvTimer } from 'react-icons/md/index';
 import { Item } from '../item';
 
 import { usePomodoroStore } from '@/stores/pomodoro';
+import { useI18n } from '@/hooks/use-i18n';
 
 interface PomodoroProps {
   open: () => void;
@@ -10,12 +11,13 @@ interface PomodoroProps {
 
 export function Pomodoro({ open }: PomodoroProps) {
   const running = usePomodoroStore(state => state.running);
+  const { t } = useI18n();
 
   return (
     <Item
       active={running}
       icon={<MdOutlineAvTimer />}
-      label="番茄钟"
+      label={t.menu.items.pomodoro}
       shortcut="Shift + P"
       onClick={open}
     />

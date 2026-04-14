@@ -2,6 +2,7 @@
   "name": "moodist",
   "type": "module",
   "version": "2.4.0",
+  "main": "electron/main.cjs",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -21,7 +22,10 @@
     "release:minor": "npm run release -- --release-as minor",
     "release:patch": "npm run release -- --release-as patch",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:4321 && electron .\"",
+    "electron:build": "npm run build && electron-builder",
+    "dist": "npm run build && electron-builder"
   },
   "dependencies": {
     "@astrojs/react": "3.6.0",
@@ -69,7 +73,11 @@
     "astro-eslint-parser": "0.16.0",
     "autoprefixer": "10.4.16",
     "commitizen": "4.3.0",
+    "concurrently": "9.2.1",
+    "cross-env": "10.1.0",
     "cz-conventional-changelog": "3.3.0",
+    "electron": "41.2.0",
+    "electron-builder": "26.8.1",
     "eslint": "8.50.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-import-resolver-alias": "1.1.2",
@@ -98,6 +106,34 @@
     "stylelint-config-recess-order": "4.4.0",
     "stylelint-config-standard": "34.0.0",
     "stylelint-prettier": "4.0.2",
-    "vitest": "1.6.0"
+    "vitest": "1.6.0",
+    "wait-on": "9.0.5"
+  },
+  "build": {
+    "appId": "com.moodist.app",
+    "productName": "Moodist",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**",
+      "electron/**",
+      "package.json"
+    ],
+    "extraMetadata": {
+      "main": "electron/main.cjs"
+    },
+    "asar": true,
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
   }
 }
