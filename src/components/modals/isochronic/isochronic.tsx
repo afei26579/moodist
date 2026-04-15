@@ -2,10 +2,7 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 
 import { Modal } from '@/components/modal';
 import { Slider } from '@/components/slider';
-<<<<<<< HEAD
 import { useI18n } from '@/hooks/use-i18n';
-=======
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
 
 import styles from './isochornic.module.css';
 
@@ -14,7 +11,6 @@ interface IsochronicProps {
   show: boolean;
 }
 
-<<<<<<< HEAD
 import type { TranslationKey } from '@/i18n/translations';
 
 interface Preset {
@@ -34,24 +30,6 @@ const presets: Preset[] = [
 
 export function IsochronicModal({ onClose, show }: IsochronicProps) {
   const { t } = useI18n();
-=======
-interface Preset {
-  baseFrequency: number;
-  beatFrequency: number;
-  name: string;
-}
-
-const presets: Preset[] = [
-  { baseFrequency: 100, beatFrequency: 2, name: 'Delta (Deep Sleep) 2 Hz' },
-  { baseFrequency: 100, beatFrequency: 5, name: 'Theta (Meditation) 5 Hz' },
-  { baseFrequency: 100, beatFrequency: 10, name: 'Alpha (Relaxation) 10 Hz' },
-  { baseFrequency: 100, beatFrequency: 20, name: 'Beta (Focus) 20 Hz' },
-  { baseFrequency: 100, beatFrequency: 40, name: 'Gamma (Cognition) 40 Hz' },
-  { baseFrequency: 440, beatFrequency: 10, name: 'Custom' },
-];
-
-export function IsochronicModal({ onClose, show }: IsochronicProps) {
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
   const [baseFrequency, setBaseFrequency] = useState<number>(440); // Default A4 note
   const [beatFrequency, setBeatFrequency] = useState<number>(10); // Default 10 Hz beat
   const [volume, setVolume] = useState<number>(0.5); // Default volume at 50%
@@ -162,11 +140,7 @@ export function IsochronicModal({ onClose, show }: IsochronicProps) {
 
   useEffect(() => {
     // Update frequencies when a preset is selected
-<<<<<<< HEAD
     if (selectedPreset !== 'custom') {
-=======
-    if (selectedPreset !== 'Custom') {
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
       const preset = presets.find(p => p.name === selectedPreset);
       if (preset) {
         setBaseFrequency(preset.baseFrequency);
@@ -179,12 +153,7 @@ export function IsochronicModal({ onClose, show }: IsochronicProps) {
     const selected = e.target.value;
     setSelectedPreset(selected);
 
-<<<<<<< HEAD
     if (selected === 'custom') {
-=======
-    if (selected === 'Custom') {
-      // Allow user to input custom frequencies
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
       return;
     }
 
@@ -198,48 +167,29 @@ export function IsochronicModal({ onClose, show }: IsochronicProps) {
   return (
     <Modal show={show} onClose={onClose}>
       <header className={styles.header}>
-<<<<<<< HEAD
         <h2 className={styles.title}>{t.isochronic.title}</h2>
         <p className={styles.desc}>{t.isochronic.description}</p>
-=======
-        <h2 className={styles.title}>Isochronic Tone</h2>
-        <p className={styles.desc}>Isochronic tone generator.</p>
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
       </header>
 
       <div className={styles.fieldWrapper}>
         <label>
-<<<<<<< HEAD
           {t.isochronic.presets}:
           <select value={selectedPreset} onChange={handlePresetChange}>
             {presets.map(preset => (
               <option key={preset.name} value={preset.name}>
-                {t.isochronic.presetLabels[preset.name as keyof typeof t.isochronic.presetLabels] ?? t.common.custom}
-=======
-          Presets:
-          <select value={selectedPreset} onChange={handlePresetChange}>
-            {presets.map(preset => (
-              <option key={preset.name} value={preset.name}>
-                {preset.name}
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
+                {t.isochronic.presetLabels[
+                  preset.name as keyof typeof t.isochronic.presetLabels
+                ] ?? t.common.custom}
               </option>
             ))}
           </select>
         </label>
       </div>
-<<<<<<< HEAD
       {selectedPreset === 'custom' && (
         <>
           <div className={styles.fieldWrapper}>
             <label>
               {t.isochronic.baseFrequency}:
-=======
-      {selectedPreset === 'Custom' && (
-        <>
-          <div className={styles.fieldWrapper}>
-            <label>
-              Base Frequency (Hz):
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
               <input
                 max="2000"
                 min="20"
@@ -254,11 +204,7 @@ export function IsochronicModal({ onClose, show }: IsochronicProps) {
           </div>
           <div className={styles.fieldWrapper}>
             <label>
-<<<<<<< HEAD
               {t.isochronic.toneFrequency}:
-=======
-              Tone Frequency (Hz):
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
               <input
                 max="40"
                 min="0.1"
@@ -289,11 +235,7 @@ export function IsochronicModal({ onClose, show }: IsochronicProps) {
       )}
       <div className={styles.fieldWrapper}>
         <label>
-<<<<<<< HEAD
           {t.common.volume}:
-=======
-          Volume:
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
           <Slider
             className={styles.volume}
             max={1}
@@ -310,17 +252,10 @@ export function IsochronicModal({ onClose, show }: IsochronicProps) {
           disabled={isPlaying}
           onClick={startSound}
         >
-<<<<<<< HEAD
           {t.common.start}
         </button>
         <button disabled={!isPlaying} onClick={stopSound}>
           {t.common.stop}
-=======
-          Start
-        </button>
-        <button disabled={!isPlaying} onClick={stopSound}>
-          Stop
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
         </button>
       </div>
     </Modal>

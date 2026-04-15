@@ -2,10 +2,7 @@
   "name": "moodist",
   "type": "module",
   "version": "2.4.0",
-<<<<<<< HEAD
   "main": "electron/main.cjs",
-=======
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -25,15 +22,11 @@
     "release:minor": "npm run release -- --release-as minor",
     "release:patch": "npm run release -- --release-as patch",
     "storybook": "storybook dev -p 6006",
-<<<<<<< HEAD
     "build-storybook": "storybook build",
     "electron:dev": "concurrently \"npm run dev -- --port 4321\" \"wait-on http://localhost:4321 && electron .\"",
     "electron:build": "npm run build && electron-builder",
     "electron:build:clean": "npm run build && rmdir /s /q release && electron-builder",
     "dist": "npm run build && electron-builder"
-=======
-    "build-storybook": "storybook build"
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
   },
   "dependencies": {
     "@astrojs/react": "3.6.0",
@@ -114,7 +107,6 @@
     "stylelint-config-recess-order": "4.4.0",
     "stylelint-config-standard": "34.0.0",
     "stylelint-prettier": "4.0.2",
-<<<<<<< HEAD
     "vitest": "1.6.0",
     "wait-on": "9.0.5"
   },
@@ -144,8 +136,5 @@
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true
     }
-=======
-    "vitest": "1.6.0"
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
   }
 }

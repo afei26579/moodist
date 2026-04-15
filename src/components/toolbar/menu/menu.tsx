@@ -35,18 +35,12 @@ import { Slider } from '@/components/slider';
 
 import { fade, mix, slideY } from '@/lib/motion';
 import { useSoundStore } from '@/stores/sound';
-<<<<<<< HEAD
 import { useLanguageStore } from '@/stores/language';
-=======
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
 
 import styles from './menu.module.css';
 import { useCloseListener } from '@/hooks/use-close-listener';
 import { closeModals } from '@/lib/modal';
-<<<<<<< HEAD
 import { useI18n } from '@/hooks/use-i18n';
-=======
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
 
 export function Menu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,11 +48,8 @@ export function Menu() {
   const noSelected = useSoundStore(state => state.noSelected());
   const globalVolume = useSoundStore(state => state.globalVolume);
   const setGlobalVolume = useSoundStore(state => state.setGlobalVolume);
-<<<<<<< HEAD
   const setLanguage = useLanguageStore(state => state.setLanguage);
   const { language, t } = useI18n();
-=======
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
 
   const initial = useMemo(
     () => ({
@@ -116,11 +107,7 @@ export function Menu() {
       <div className={styles.wrapper}>
         <DropdownMenu.Root open={isOpen} onOpenChange={o => setIsOpen(o)}>
           <DropdownMenu.Trigger asChild>
-<<<<<<< HEAD
             <button aria-label={t.menu.ariaLabel} className={styles.menuButton}>
-=======
-            <button aria-label="菜单" className={styles.menuButton}>
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
               {isOpen ? <IoClose /> : <IoMenu />}
             </button>
           </DropdownMenu.Trigger>
@@ -164,11 +151,7 @@ export function Menu() {
                     <Divider />
 
                     <div className={styles.globalVolume}>
-<<<<<<< HEAD
                       <label>{t.menu.globalVolume}</label>
-=======
-                      <label htmlFor="global-volume">全局音量</label>
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
                       <Slider
                         max={100}
                         min={0}
@@ -177,29 +160,30 @@ export function Menu() {
                       />
                     </div>
 
-<<<<<<< HEAD
                     <div className={styles.languageSwitch}>
                       <label>{t.menu.language}</label>
                       <div className={styles.languageButtons}>
                         <button
-                          className={language === 'zh' ? styles.activeLanguage : ''}
-                          onClick={() => setLanguage('zh')}
                           type="button"
+                          className={
+                            language === 'zh' ? styles.activeLanguage : ''
+                          }
+                          onClick={() => setLanguage('zh')}
                         >
                           {t.menu.languageChinese}
                         </button>
                         <button
-                          className={language === 'en' ? styles.activeLanguage : ''}
-                          onClick={() => setLanguage('en')}
                           type="button"
+                          className={
+                            language === 'en' ? styles.activeLanguage : ''
+                          }
+                          onClick={() => setLanguage('en')}
                         >
                           {t.menu.languageEnglish}
                         </button>
                       </div>
                     </div>
 
-=======
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
                     <Divider />
                     <DonateItem />
                     <SourceItem />

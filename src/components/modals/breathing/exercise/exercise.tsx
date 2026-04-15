@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo, useCallback } from 'react';
 import { motion } from 'motion/react';
 
 import { padNumber } from '@/helpers/number';
-<<<<<<< HEAD
 import { useI18n } from '@/hooks/use-i18n';
 
 import styles from './exercise.module.css';
@@ -24,37 +23,8 @@ const EXERCISE_DURATIONS: Record<Exercise, Partial<Record<Phase, number>>> = {
 
 export function Exercise() {
   const { t } = useI18n();
-  const [selectedExercise, setSelectedExercise] = useState<Exercise>('fourSevenEight');
-=======
-
-import styles from './exercise.module.css';
-
-type Exercise = 'Box Breathing' | 'Resonant Breathing' | '4-7-8 Breathing';
-type Phase = 'inhale' | 'exhale' | 'holdInhale' | 'holdExhale';
-
-const EXERCISE_PHASES: Record<Exercise, Phase[]> = {
-  '4-7-8 Breathing': ['inhale', 'holdInhale', 'exhale'],
-  'Box Breathing': ['inhale', 'holdInhale', 'exhale', 'holdExhale'],
-  'Resonant Breathing': ['inhale', 'exhale'],
-};
-
-const EXERCISE_DURATIONS: Record<Exercise, Partial<Record<Phase, number>>> = {
-  '4-7-8 Breathing': { exhale: 8, holdInhale: 7, inhale: 4 },
-  'Box Breathing': { exhale: 4, holdExhale: 4, holdInhale: 4, inhale: 4 },
-  'Resonant Breathing': { exhale: 5, inhale: 5 }, // No holdExhale
-};
-
-const PHASE_LABELS: Record<Phase, string> = {
-  exhale: 'Exhale',
-  holdExhale: 'Hold',
-  holdInhale: 'Hold',
-  inhale: 'Inhale',
-};
-
-export function Exercise() {
   const [selectedExercise, setSelectedExercise] =
-    useState<Exercise>('4-7-8 Breathing');
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
+    useState<Exercise>('fourSevenEight');
   const [phaseIndex, setPhaseIndex] = useState(0);
 
   const phases = useMemo(
@@ -66,7 +36,6 @@ export function Exercise() {
     [selectedExercise],
   );
 
-<<<<<<< HEAD
   const phaseLabels: Record<Phase, string> = useMemo(
     () => ({
       exhale: t.breathing.exhale,
@@ -86,10 +55,7 @@ export function Exercise() {
     [t],
   );
 
-=======
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
   const currentPhase = phases[phaseIndex];
-
   const animationVariants = useMemo(
     () => ({
       exhale: {
@@ -152,11 +118,7 @@ export function Exercise() {
           key={selectedExercise}
           variants={animationVariants}
         />
-<<<<<<< HEAD
         <p className={styles.phase}>{phaseLabels[currentPhase]}</p>
-=======
-        <p className={styles.phase}>{PHASE_LABELS[currentPhase]}</p>
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
       </div>
 
       <div className={styles.selectWrapper}>
@@ -165,15 +127,9 @@ export function Exercise() {
           value={selectedExercise}
           onChange={e => setSelectedExercise(e.target.value as Exercise)}
         >
-<<<<<<< HEAD
           {(Object.keys(EXERCISE_PHASES) as Exercise[]).map(exercise => (
             <option key={exercise} value={exercise}>
               {exerciseLabels[exercise]}
-=======
-          {Object.keys(EXERCISE_PHASES).map(exercise => (
-            <option key={exercise} value={exercise}>
-              {exercise}
->>>>>>> b6eb5d02316342552812df149042899a4dd1e779
             </option>
           ))}
         </select>
